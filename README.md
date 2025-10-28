@@ -5,4 +5,5 @@ Type letters to guess a hidden word! Correct letters reveal themselves, wrong gu
 Features animations, sound effects, and automatic restart on win/loss.  
 
 Built with HTML, CSS (Bootstrap), and JavaScript.  
-Open `index.html` in a browser to play.
+
+[Play the game here](https://marcfgomes.github.io/week03-homework/)
