@@ -1,5 +1,5 @@
 // 🧠 Starter Word Guess Game — Keyboard Input Ready
-
+let gameActive = true;
 
 // Word bank
 var words = ["javascript", "array", "loop", "variable"];
@@ -110,6 +110,7 @@ const calculateAttemps = (letter) => {
 
     //Win or lose scenario;
     if (arrayUnderscore.join("") === arrayChosenWord.join("")) {
+        gameActive = false;
         underscore.classList.add("successAnimation");
         setTimeout(() => {
             underscore.classList.remove("successAnimation");
@@ -120,6 +121,7 @@ const calculateAttemps = (letter) => {
         
     }
     else if (attempts === 0) {
+        gameActive = false;
         underscore.classList.add("failureAnimation");
         setTimeout(() => {
             underscore.classList.remove("failureAnimation");
@@ -133,12 +135,13 @@ const calculateAttemps = (letter) => {
 
 // ⌨️ Listen for keyboard input when the page loads
 window.addEventListener("keydown", function (event) {
-  let key = event.key.toLowerCase();
+    if (!gameActive) return;
+    let key = event.key.toLowerCase();
 
-  // Only process alphabetic letters (ignore Shift, Enter, etc.)
-  if (key.match(/^[a-z]$/)) {
-    startGame(key);
-  } else {
-    console.log("Please press a valid letter (A–Z).");
-  }
+    // Only process alphabetic letters (ignore Shift, Enter, etc.)
+    if (key.match(/^[a-z]$/)) {
+        startGame(key);
+    } else {
+        console.log("Please press a valid letter (A–Z).");
+    }
 });
