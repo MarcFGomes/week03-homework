@@ -42,6 +42,7 @@ const restartGame = () => {
     lettersAlreadyGuessed.textContent = "None yet";
     arrayChosenWord = chosenWord.split("");
     attemptsLeft.textContent = attempts;
+    gameActive = true;
 }
 
 // 🎮 Function students will build next
